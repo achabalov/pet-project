@@ -1,0 +1,1 @@
+export {routeConfig} from './components/AppRouter'
