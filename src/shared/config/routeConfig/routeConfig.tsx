@@ -2,7 +2,7 @@ import React, {Suspense} from 'react';
 import {Routes, Route} from "react-router-dom";
 import {routeConfig} from "app/router";
 
-const RouteConfig = () => {
+function RouteConfig() {
     return (
         <Suspense fallback={<div>Идет загрузка</div>}>
             <Routes>
@@ -16,6 +16,6 @@ const RouteConfig = () => {
             </Routes>
         </Suspense>
     );
-};
+}
 
 export default RouteConfig;
