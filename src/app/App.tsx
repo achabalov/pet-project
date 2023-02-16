@@ -1,13 +1,14 @@
 import React, { Suspense } from 'react'
 import './styles/index.scss'
 import { useTheme } from 'shared/config'
-import { classNames } from 'shared/lib/classNames/classNames'
-import RouteConfig from 'shared/config/routeConfig/routeConfig'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
+import { classNames } from 'utils/classNames'
+import RouteConfig from 'shared/config/routeConfig/routeConfig'
 
-const App = () => {
+function App() {
     const { theme } = useTheme()
+
     return (
         <Suspense fallback="">
             <div className={classNames('app', {}, [theme])}>

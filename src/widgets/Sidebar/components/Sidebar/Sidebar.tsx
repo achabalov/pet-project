@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import styles from './Sidebar.module.scss'
+import React, { FC, useEffect } from 'react'
 import { useModalVisibility } from 'shared/hooks'
 import { Button } from 'shared/ui/Button/Button'
 import { ThemeSwitcher } from 'features/ThemeSwitcher'
 import { LangSwitcher } from 'features/LangSwitcher'
+import { classNames } from 'utils/classNames'
+import styles from './Sidebar.module.scss'
 
 interface SidebarProps {
     className?: string
@@ -12,6 +12,11 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
     const { visibility, toggleVisibility } = useModalVisibility(false)
+    useEffect(() => {
+        if (visibility) {
+            toggleVisibility()
+        }
+    }, [])
     return (
         <div className={classNames(styles.Sidebar, { [styles.collapsed]: visibility }, [styles[className]])}>
             <Button onClick={toggleVisibility}>toggle</Button>
