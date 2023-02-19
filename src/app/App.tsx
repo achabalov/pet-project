@@ -3,7 +3,7 @@ import './styles/index.scss'
 import { useTheme } from 'shared/config'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { classNames } from 'utils/classNames'
+import { classNames } from 'shared/lib/classNames/classNames'
 import RouteConfig from 'shared/config/routeConfig/routeConfig'
 
 function App() {
