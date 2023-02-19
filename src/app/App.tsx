@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import './styles/index.scss'
 import { useTheme } from 'shared/config'
 import { Navbar } from 'widgets/Navbar'
@@ -8,7 +8,9 @@ import RouteConfig from 'shared/config/routeConfig/routeConfig'
 
 function App() {
     const { theme } = useTheme()
-
+    useEffect(() => {
+        throw new Error()
+    }, [])
     return (
         <Suspense fallback="">
             <div className={classNames('app', {}, [theme])}>
