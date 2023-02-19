@@ -60,7 +60,8 @@
     "react/jsx-props-no-spreading": 1,
     "react/react-in-jsx-scope": 0,
     "no-undef": 1,
-    "no-underscore-dangle": 1
+    "no-underscore-dangle": 1,
+    "no-restricted-globals": [0, "location"]
   },
   "settings": {
     "import/resolver": {
