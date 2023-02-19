@@ -8,9 +8,7 @@ import RouteConfig from 'shared/config/routeConfig/routeConfig'
 
 function App() {
     const { theme } = useTheme()
-    useEffect(() => {
-        throw new Error()
-    }, [])
+
     return (
         <Suspense fallback="">
             <div className={classNames('app', {}, [theme])}>
