@@ -14,8 +14,10 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     const { visibility, toggleVisibility } = useModalVisibility(false)
 
     return (
-        <div className={classNames(styles.Sidebar, { [styles.collapsed]: visibility }, [styles[className]])}>
-            <Button onClick={toggleVisibility}>toggle</Button>
+        <div data-testid="sidebar" className={classNames(styles.Sidebar, { [styles.collapsed]: visibility }, [styles[className]])}>
+            <Button data-testid="sidebar-toggle" onClick={toggleVisibility}>
+                toggle
+            </Button>
             <div className={styles.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={styles.langSwitcher} />
