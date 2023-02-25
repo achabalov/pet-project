@@ -1,12 +1,14 @@
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
-import HTMLWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BuildOptions } from './types/config'
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+    console.log(isDev)
     return [
-        new HTMLWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: paths.html,
         }),
         new webpack.ProgressPlugin(),
@@ -21,5 +23,8 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
             new ReactRefreshWebpackPlugin({
                 overlay: false,
             }),
-    ]
+        new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+        }),
+    ].filter(Boolean)
 }
