@@ -41,5 +41,9 @@
   "lib": [
     "es2017",
     "dom"
+  ],
+  "include": [
+    "./config/jest/setupTests.ts",
+    "src"
   ]
 }
