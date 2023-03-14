@@ -1,0 +1,37 @@
+name: testing, building
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 19.x ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies 📦
+        run: yarn install --frozen-lockfile
+
+      - name: build project
+        run: yarn prod
+
+      - name: linting typescript
+        run: yarn lint:ts
+
+      - name: unit testing
+        run: yarn unit
+
+      - name: loki testing
+        run: yarn unit
+
+      - name: build-storybook
+        run: yarn build-storybook

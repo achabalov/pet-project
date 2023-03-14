@@ -13,7 +13,8 @@
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build-storybook": "build-storybook -c ./config/storybook",
     "loki": "loki test",
-    "loki:update": "loki approve"
+    "loki:update": "loki approve",
+    "loki:test:ci": "npx loki --requireReference --reactUri file:./storybook-static"
   },
   "keywords": [],
   "author": "",
