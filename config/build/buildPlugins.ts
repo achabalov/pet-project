@@ -23,8 +23,9 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
             new ReactRefreshWebpackPlugin({
                 overlay: false,
             }),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-        }),
+        isDev &&
+            new BundleAnalyzerPlugin({
+                openAnalyzer: false,
+            }),
     ].filter(Boolean)
 }
