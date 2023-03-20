@@ -14,7 +14,10 @@
     "build-storybook": "build-storybook -c ./config/storybook",
     "loki": "loki test",
     "loki:update": "loki approve",
-    "loki:test:ci": "npx loki --requireReference --reactUri file:./storybook-static"
+    "loki:test:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "visual:report:json": "node scripts/generate-visual-json-report.js",
+    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:ui:report": "yarn visual:report:json && yarn visual:report:html"
   },
   "keywords": [],
   "author": "",
@@ -73,6 +76,7 @@
     "prettier": "^2.8.4",
     "react-i18next": "11.15.5",
     "react-refresh": "^0.14.0",
+    "reg-cli": "^0.17.7",
     "regenerator-runtime": "0.13.9",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",

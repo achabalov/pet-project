@@ -24,14 +24,19 @@ jobs:
       - name: build project
         run: yarn prod
 
+        if: always()
       - name: linting typescript
         run: yarn lint:ts
 
+        if: always()
       - name: unit testing
         run: yarn unit
 
+        if: always()
       - name: build-storybook
         run: yarn build-storybook
 
-      - name: loki testing
-        run: yarn unit
+        if: always()
+      - name: loki:test:ci
+        run: yarn loki:test:ci
+
