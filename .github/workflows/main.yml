@@ -30,8 +30,8 @@ jobs:
       - name: unit testing
         run: yarn unit
 
-      - name: loki testing
-        run: yarn unit
-
       - name: build-storybook
         run: yarn build-storybook
+
+      - name: loki testing
+        run: yarn unit
