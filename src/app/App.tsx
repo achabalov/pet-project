@@ -1,5 +1,4 @@
-import React, { Suspense, useEffect } from 'react'
-import './styles/index.scss'
+import React, { Suspense } from 'react'
 import { useTheme } from 'shared/config'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
