@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui'
+import { useTheme } from 'shared/config'
 import styles from './Modal.module.scss'
 
 interface ModalProps {
@@ -10,6 +11,7 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
+    const { theme } = useTheme()
     const mods: Record<string, boolean> = {
         [styles.opened]: isOpen,
     }
@@ -36,7 +38,7 @@ export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) 
 
     return (
         <Portal>
-            <div className={classNames(styles.Modal, mods, [styles[className]])}>
+            <div className={classNames(styles.Modal, mods, [styles[className], theme])}>
                 <div className={styles.overlay} onClick={closeHandler}>
                     <div className={styles.content} onClick={onContentClick}>
                         {children}
