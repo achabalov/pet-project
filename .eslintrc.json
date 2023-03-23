@@ -66,7 +66,8 @@
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0,
     "react-hooks/rules-of-hooks": 1,
-    "react-hooks/exhaustive-deps": 1
+    "react-hooks/exhaustive-deps": 1,
+    "no-param-reassign": 0
   },
   "settings": {
     "import/resolver": {
