@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui'
 import { useTheme } from 'shared/config'
@@ -8,9 +8,12 @@ interface ModalProps {
     className?: string
     isOpen: boolean
     onClose: (bol: boolean) => void
+    lazy?: boolean
 }
 
-export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
+export const Modal: FC<ModalProps> = ({ className, children, lazy, isOpen, onClose }) => {
+    const [isMounted, setIsMounted] = useState(false)
+
     const { theme } = useTheme()
     const mods: Record<string, boolean> = {
         [styles.opened]: isOpen,
@@ -25,6 +28,12 @@ export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) 
     }
 
     useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
+
+    useEffect(() => {
         const keyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
                 onClose(false)
@@ -35,6 +44,10 @@ export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) 
             window.removeEventListener('keydown', keyDown)
         }
     }, [onClose])
+
+    if (lazy && !isMounted) {
+        return null
+    }
 
     return (
         <Portal>
