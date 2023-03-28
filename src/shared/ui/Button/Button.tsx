@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './Button.module.scss'
+import disableAutomock = jest.disableAutomock
 
 export enum ButtonTheme {
     CLEAR = 'clear',
@@ -21,16 +22,31 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
     square?: boolean
     size?: ButtonSize
+    disabled?: boolean
 }
 
-export const Button: FC<ButtonProps> = ({ className, size, children, square, theme, ...props }) => {
+export const Button: FC<ButtonProps> = ({
+    className,
+    size,
+    children,
+    disabled,
+    square,
+    theme,
+    ...props
+}) => {
     const mods: Record<string, boolean> = {
         [styles[theme]]: true,
         [styles.square]: square,
         [styles[size]]: true,
+        [styles.disabled]: disabled,
     }
     return (
-        <button type="button" className={classNames(styles.Button, mods, [styles[theme], className])} {...props}>
+        <button
+            type="button"
+            className={classNames(styles.Button, mods, [styles[theme], className])}
+            disabled={disabled}
+            {...props}
+        >
             {children}
         </button>
     )
