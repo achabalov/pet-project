@@ -17,4 +17,4 @@ Primary.args = {}
 
 export const Secondary = Template.bind({})
 Secondary.args = {}
-Secondary.decorators = [ThemeDecorator(Theme.DARK)]
+// Secondary.decorators = [ThemeDecorator(Theme.DARK)]
