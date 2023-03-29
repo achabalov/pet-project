@@ -51,7 +51,7 @@ export const Navbar: VFC<NavbarProps> = ({ className }) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal isOpen={isOpen} onClose={onCloseModal} />
+            {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
         </div>
     )
 }
