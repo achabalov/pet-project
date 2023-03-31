@@ -9,6 +9,8 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { AppDispatch } from 'app/providers/StoreProvider'
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
@@ -20,16 +22,17 @@ import { loginByUsername } from '../../model/services/loginByUserName/loginByUse
 interface LoginFormProps {
     className?: string
     autoFocus?: boolean
+    onSuccess: () => void
 }
 
 const initialReducers: ReducersList = {
     loginForm: loginReducer,
 }
 
-const LoginForm = memo(({ className, autoFocus }: LoginFormProps) => {
+const LoginForm = memo(({ className, autoFocus, onSuccess }: LoginFormProps) => {
     const [isFocused, setIsFocused] = useState(false)
     const { t } = useTranslation('modalForm')
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const username = useSelector(getLoginUsername)
     const password = useSelector(getLoginPassword)
@@ -48,16 +51,20 @@ const LoginForm = memo(({ className, autoFocus }: LoginFormProps) => {
         },
         [dispatch]
     )
-    const onLoginClick = useCallback(() => {
-        // @ts-ignore
-        dispatch(loginByUsername({ username, password }))
-    }, [dispatch, password, username])
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }))
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess()
+        }
+    }, [onSuccess, dispatch, password, username])
 
     useEffect(() => {
-        const pressEnter = (e: KeyboardEvent) => {
+        const pressEnter = async (e: KeyboardEvent) => {
             if (e.key === 'Enter') {
-                // @ts-ignore
-                dispatch(loginByUsername({ username, password }))
+                const result = await dispatch(loginByUsername({ username, password }))
+                if (result.meta.requestStatus === 'fulfilled') {
+                    onSuccess()
+                }
             }
         }
         window.addEventListener('keydown', pressEnter)

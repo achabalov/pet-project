@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "Александр",
+    "lastName": "Chabalov",
+    "age": 28,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Volgograd",
+    "username": "admin",
+    "avatar": "https://www.meme-arsenal.com/memes/bb5868174c21c1ea00d8f641906c750e.jpg"
+  }
 }
