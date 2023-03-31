@@ -15,7 +15,10 @@ export const StoreProvider: FC<StoreProviderProps> = ({
     asyncReducers,
     initialState,
 }) => {
-    const store = createReduxStore(initialState as StateSchema, asyncReducers as ReducersMapObject)
+    const store = createReduxStore(
+        initialState as StateSchema,
+        asyncReducers as ReducersMapObject<StateSchema>
+    )
 
     return <Provider store={store}>{children}</Provider>
 }
