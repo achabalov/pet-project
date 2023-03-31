@@ -1,4 +1,4 @@
-import React, { useCallback, useState, VFC } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
@@ -11,7 +11,7 @@ interface NavbarProps {
     className?: string
 }
 
-export const Navbar: VFC<NavbarProps> = ({ className }) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false)
     const dispatch = useDispatch()
     const authData = useSelector(getUserData)
@@ -54,4 +54,4 @@ export const Navbar: VFC<NavbarProps> = ({ className }) => {
             {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
         </div>
     )
-}
+})
