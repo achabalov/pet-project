@@ -2,6 +2,7 @@ import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/Storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'shared/config'
+import { StoreDecorator } from 'shared/config/Storybook/StoreDecorator/StoreDecorator'
 import ProfilePage from './ProfilePage'
 
 export default {
@@ -14,7 +15,8 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...
 
 export const Primary = Template.bind({})
 Primary.args = {}
+Primary.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
 
 export const Secondary = Template.bind({})
 Secondary.args = {}
-Secondary.decorators = [ThemeDecorator(Theme.DARK)]
+Secondary.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
