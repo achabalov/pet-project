@@ -15,14 +15,11 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const { visibility, toggleVisibility } = useModalVisibility(false)
-    const { t } = useTranslation(['link'])
 
     return (
         <div
             data-testid="sidebar"
-            className={classNames(styles.Sidebar, { [styles.collapsed]: visibility }, [
-                styles[className],
-            ])}
+            className={classNames(styles.Sidebar, { [styles.collapsed]: visibility }, [className])}
         >
             <Button
                 data-testid="sidebar-toggle"
