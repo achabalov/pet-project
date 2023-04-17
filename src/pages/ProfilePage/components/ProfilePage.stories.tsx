@@ -1,8 +1,8 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/Storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from 'shared/config'
 import { StoreDecorator } from 'shared/config/Storybook/StoreDecorator/StoreDecorator'
+import { Theme } from 'shared/config/theme/lib/ThemeContext'
 import ProfilePage from './ProfilePage'
 
 export default {
