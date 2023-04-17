@@ -1,9 +1,10 @@
 import React, { memo, ReactNode } from 'react'
-import { Theme, useTheme } from 'shared/config'
 import Dark from 'shared/assets/icons/theme-dark.svg'
 import Light from 'shared/assets/icons/theme-light.svg'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { useTheme } from 'shared/config/theme/lib/useTheme'
+import { Theme } from 'shared/config/theme/lib/ThemeContext'
 import styles from './ThemeSwitcher.module.scss'
 
 interface ThemeSwitcherProps {
