@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui'
-import { useTheme } from 'shared/config'
+import { useTheme } from 'shared/config/theme/lib/useTheme'
 import styles from './Modal.module.scss'
 
 interface ModalProps {
