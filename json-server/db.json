@@ -26,10 +26,10 @@
     }
   ],
   "profile": {
-    "firstName": "Александр",
-    "lastName": "Chabalov",
+    "firstName": "Александрw",
+    "lastName": "Чабалов",
     "age": 28,
-    "currency": "RUB",
+    "currency": "USD",
     "country": "Russia",
     "city": "Volgograd",
     "username": "admin",

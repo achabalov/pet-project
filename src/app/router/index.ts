@@ -1,1 +1,1 @@
-export {routeConfig} from './components/AppRouter'
+export { routeConfig } from './components/routeConfig'

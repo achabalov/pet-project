@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/Storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from 'shared/config'
+import { Theme } from 'shared/config/theme/lib/ThemeContext'
 import AboutPage from './AboutPage'
 
 export default {
