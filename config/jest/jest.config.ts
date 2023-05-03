@@ -18,11 +18,12 @@ export default {
     clearMocks: true,
     coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-    moduleDirectories: ['node_modules', 'src'],
+    moduleDirectories: ['node_modules', '<rootDir>/src'],
     testMatch: [
         // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
+    roots: ['<rootDir>src'],
     transform: {},
     extensionsToTreatAsEsm: ['.ts'],
     testEnvironment: 'jsdom',
@@ -33,6 +34,7 @@ export default {
         '\\.(scss)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
+    modulePaths: ['<rootDir>src'],
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -77,6 +79,7 @@ export default {
     globals: {
         __IS_DEV__: true,
         __API__: '',
+        __PROJECT__: 'jest',
     },
 
     // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.

@@ -1,7 +1,6 @@
 import React, { ButtonHTMLAttributes, FC } from 'react'
 import { classNames, Mods } from 'shared/lib/classNames/classNames'
 import styles from './Button.module.scss'
-import disableAutomock = jest.disableAutomock
 
 export enum ButtonTheme {
     CLEAR = 'clear',
