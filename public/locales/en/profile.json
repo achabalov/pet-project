@@ -6,5 +6,12 @@
   "Ваш город": "Your city",
   "Ваш возраст": "Your age",
   "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile",
-  "Попробуйте обновить страницу": "Try refreshing the page"
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Введите имя пользователя": "Enter user name",
+  "Введите ссылку на аватар": "Enter the link to the avatar",
+  "Имя и фамилия обязательные поля" : "Name and lastname required fields",
+  "Некорректный возраст" : "Incorrect age",
+  "Страна обязательное поле" :  "Country is required field",
+  "Серверная ошибка при сохранении" : "Server error on save",
+  "Данные не указаны" :  "No data is given"
 }
