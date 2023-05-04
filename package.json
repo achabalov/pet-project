@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "serve": "webpack serve --env mode=development port=3000",
+    "serve:dev": "concurrently \"yarn serve\" \"yarn json-server\"",
     "dev": "webpack --env mode=development",
     "prod": "webpack --env mode=production",
     "lint:ts": "yarn eslint '**/*.{ts,tsx}'",
@@ -55,6 +56,7 @@
     "babel-jest": "^29.4.3",
     "babel-loader": "^9.1.2",
     "babel-plugin-i18next-extract": "^0.9.0",
+    "concurrently": "^8.0.1",
     "css-loader": "^6.7.3",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "^19.0.4",
