@@ -8,10 +8,11 @@ interface NotFoundProps {
 }
 
 export const NotFoundPage = memo(({ className }: NotFoundProps) => {
-    const { t } = useTranslation('not_found')
+    const { t } = useTranslation('link')
     return (
         <div className={classNames(styles.NotFoundPage, {}, [className])}>
             {t('Страница не найдена')}
+            <p>sadasd</p>
         </div>
     )
 })
